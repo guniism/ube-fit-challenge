@@ -45,9 +45,9 @@ export default function Page(){
           setError("กรุณากรอกข้อมูลให้ครบ");
           return;
         }
-    
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
         try { 
-          const res = await fetch("http://localhost:3000/api/add", {
+          const res = await fetch(`${apiUrl}/api/add`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
