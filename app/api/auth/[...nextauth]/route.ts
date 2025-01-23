@@ -13,7 +13,8 @@ const authOptions: NextAuthOptions = {
         email: { label: 'Email', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials, req) {
+    //   async authorize(credentials, req) {
+        async authorize(credentials) {
         // const { email, password } = await credentials;
         
         const email = await credentials?.email;
