@@ -6,13 +6,22 @@ import { UBEFitChallenge } from '../register/page';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { useEffect } from 'react';
 
-function RegisterPage() {
+function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const router = useRouter();
+  const {data: session} = useSession();
+
+  useEffect(() => {
+    if (session) {
+      router.replace("/");
+    }
+  }, [session, router]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -66,4 +75,4 @@ function RegisterPage() {
   )
 }
 
-export default RegisterPage;
+export default LoginPage;
