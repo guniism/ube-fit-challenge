@@ -6,7 +6,10 @@ export async function POST(req: any){
     try {
         await connectMongoDb();
         const {email} = await req.json();
+        const user = await User.findOne({ email }).select("_id");
+        // console.log("User: ", user)
 
+        return NextResponse.json({ user })
 
     } catch (error) {
         return NextResponse.json({message: "Error while user register."}, {status: 500});

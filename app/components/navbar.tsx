@@ -31,6 +31,7 @@ export default  function Navbar(){
                                         src={`/assets/icons/${filename}-white.svg`}
                                         alt={`${filename} icon`}
                                         className="mx-auto w-12 h-auto"
+                                        priority={false}
                                 />
                                 </div>
                             </Link>
@@ -47,7 +48,7 @@ export default  function Navbar(){
                                 />
                                 
                                 <p className={clsx('text-sm text-gray', {
-                                    'text-[#0070C0]': pathname === href,
+                                    'text-blue2': pathname === href,
                                 })}>{label}</p>
                             </Link>
                         </li>

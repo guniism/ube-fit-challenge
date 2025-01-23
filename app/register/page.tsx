@@ -3,7 +3,7 @@
 import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
-
+import Router, { useRouter } from 'next/router';
 export function UBEFitChallenge(){
   return(
     <div className='flex flex-col justify-center items-center mb-7 mt-5'>
@@ -19,8 +19,9 @@ function RegisterPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-
-  console.log(name, email, password, confirmPassword, error);
+  const [success, setSuccess] = useState("");
+  
+  // console.log(name, email, password, confirmPassword, error);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     
@@ -34,20 +35,36 @@ function RegisterPage() {
       return;
     }
 
-    try {
-      const res = await fetch("http://localhost:3000/api/register", {
+    const resCheckUser = await fetch("http://192.168.1.102:3000/api/usercheck", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({email})
+    })
+
+    const {user} = await resCheckUser.json();
+
+    if(user){
+      setError("อีเมลนี้ถูกใช้ลงทะเบียนไปแล้ว");
+      return;
+    }
+
+    try { 
+      const res = await fetch("http://192.168.1.102:3000/api/register", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            name, email, password
+          name, email, password
         })
       })
 
       if(res.ok){
         const form = e.target;
         setError("");
+        setSuccess("สมัครสมาชิกสำเร็จ");
         form.reset();
       }
       else{
@@ -69,7 +86,7 @@ function RegisterPage() {
           <input onChange={(e) => setName(e.target.value)} className='rounded-2xl p-3 block mx-auto bg-[#F5F5F5] w-full text-gray' type='text' placeholder='กรุณากรอกชื่อ'></input>
           
           <h3 className='ml-2 font-normal text-lg mb-1 mt-3'>อีเมล</h3>
-          <input onChange={(e) => setEmail(e.target.value)} className='rounded-2xl p-3 block mx-auto bg-[#F5F5F5] w-full text-gray' type='email' placeholder='กรุณากรอกอีเมล'></input>
+          <input onChange={(e) => setEmail(e.target.value.toLowerCase())} className='rounded-2xl p-3 block mx-auto bg-[#F5F5F5] w-full text-gray' type='email' placeholder='กรุณากรอกอีเมล'></input>
           
           <h3 className='ml-2 font-normal text-lg mb-1 mt-3'>รหัสผ่าน</h3>
           <input onChange={(e) => setPassword(e.target.value)} className='rounded-2xl p-3 block mx-auto bg-[#F5F5F5] w-full text-gray' type='password' placeholder='กรุณากรอกรหัสผ่าน'></input>
@@ -79,6 +96,10 @@ function RegisterPage() {
 
           {error && (
             <div className='block rounded-2xl text-base text-red py-1 mx-auto w-full border border-red text-center'>{error}</div>
+          )}
+
+          {success && (
+            <div className='block rounded-2xl text-base text-green py-1 mx-auto w-full border border-green text-center'>{success}</div>
           )}
           
 
