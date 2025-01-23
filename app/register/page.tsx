@@ -35,7 +35,7 @@ function RegisterPage() {
       return;
     }
 
-    const resCheckUser = await fetch("http://192.168.1.102:3000/api/usercheck", {
+    const resCheckUser = await fetch("http://localhost:3000/api/usercheck", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -51,7 +51,7 @@ function RegisterPage() {
     }
 
     try { 
-      const res = await fetch("http://192.168.1.102:3000/api/register", {
+      const res = await fetch("http://localhost:3000/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
