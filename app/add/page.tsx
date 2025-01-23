@@ -45,7 +45,7 @@ export default function Page(){
           setError("กรุณากรอกข้อมูลให้ครบ");
           return;
         }
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const apiUrl = "https://ube-fit-challenge.vercel.app";
         try { 
           const res = await fetch(`${apiUrl}/api/add`, {
             method: "POST",

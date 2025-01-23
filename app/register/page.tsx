@@ -27,6 +27,7 @@ function RegisterPage() {
   const [success, setSuccess] = useState("");
   
   // console.log(name, email, password, confirmPassword, error);
+  const apiUrl = "https://ube-fit-challenge.vercel.app";
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     
@@ -39,7 +40,7 @@ function RegisterPage() {
       setError("กรุณากรอกข้อมูลให้ครบ");
       return;
     }
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    
     const resCheckUser = await fetch(`${apiUrl}/api/usercheck`, {
       method: "POST",
       headers: {
