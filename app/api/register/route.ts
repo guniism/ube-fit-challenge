@@ -7,9 +7,13 @@ export async function POST(req: any){
     try {
         const {name, email, password} = await req.json();
 
-        await connectMongoDb();
-        await User.create({ name, email, password});
+        const saltRounds = 10;
+        const salt = bcrypt.genSaltSync(saltRounds);
+        const hash = bcrypt.hashSync(password, salt);
 
+        await connectMongoDb();
+        // console.log(hash);
+        await User.create({ name, email, hash});
 
 
         // console.log("Name: ", name);

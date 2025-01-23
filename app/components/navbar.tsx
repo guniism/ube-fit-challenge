@@ -47,7 +47,7 @@ export default  function Navbar(){
                                 />
                                 
                                 <p className={clsx('text-sm text-gray', {
-                                    'text-blue': pathname === href,
+                                    'text-[#0070C0]': pathname === href,
                                 })}>{label}</p>
                             </Link>
                         </li>
