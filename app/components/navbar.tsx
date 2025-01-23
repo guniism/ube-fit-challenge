@@ -24,7 +24,7 @@ export default  function Navbar(){
                     index === 2 ? (
                         <li key={`${filename}_nav`}>
                             <Link href={href}>
-                                <div className="w-[75px] h-[75px] bg-blue content-center rounded-[24px] -translate-y-8">
+                                <div className="w-[75px] h-[75px] bg-blue content-center rounded-[24px] -translate-y-8 ">
                                 <Image
                                         height="24"
                                         width="24"
