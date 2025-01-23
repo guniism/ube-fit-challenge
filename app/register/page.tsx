@@ -1,9 +1,11 @@
 "use client"
 
+import { redirect } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
-import Router, { useRouter } from 'next/router';
+
 export function UBEFitChallenge(){
   return(
     <div className='flex flex-col justify-center items-center mb-7 mt-5'>
@@ -14,6 +16,9 @@ export function UBEFitChallenge(){
 }
 
 function RegisterPage() {
+  const {data: session} = useSession();
+  if(session) redirect("/");
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
