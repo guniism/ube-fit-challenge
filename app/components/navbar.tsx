@@ -47,8 +47,9 @@ export default  function Navbar(){
                                     className="mx-auto"
                                 />
                                 
-                                <p className={clsx('text-sm text-gray', {
-                                    'text-blue2': pathname === href,
+                                <p className={clsx('text-sm ', {
+                                    'text-blue': pathname === href,
+                                    'text-gray': pathname != href,
                                 })}>{label}</p>
                             </Link>
                         </li>
