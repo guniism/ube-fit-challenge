@@ -2,12 +2,19 @@
 
 import React from 'react'
 import { useState } from 'react';
-import { UBEFitChallenge } from '../register/page';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
+function UBEFitChallenge(){
+  return(
+    <div className='flex flex-col justify-center items-center mb-7 mt-5'>
+      <h1 className='text-blue font-medium text-[34px] flex'>UBE Fit&nbsp;<div className='text-gray'>Challenge</div></h1>
+      <hr className="border-t-4 border-blue w-72 " />
+    </div>
+  )
+}
 
 function LoginPage() {
   const [email, setEmail] = useState("");

@@ -6,7 +6,7 @@ import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
 
-export function UBEFitChallenge(){
+function UBEFitChallenge(){
   return(
     <div className='flex flex-col justify-center items-center mb-7 mt-5'>
       <h1 className='text-blue font-medium text-[34px] flex'>UBE Fit&nbsp;<div className='text-gray'>Challenge</div></h1>
