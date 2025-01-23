@@ -19,6 +19,11 @@ const userSchema = new Schema(
             require: false,
             default: "user",
         },
+        imgurl:{
+            type: String,
+            require: false,
+            default: "user",
+        },
     },
     {timestamps: true}
 )
