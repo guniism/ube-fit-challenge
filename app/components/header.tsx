@@ -48,7 +48,7 @@ export default function Header({style, profile} : {style: any, profile: boolean}
                     <h1 className='text-blue font-medium text-[26px] flex'>UBE Fit&nbsp;<div className='text-gray'>Challenge</div></h1>
                     <hr className="border-t-2 border-blue w-52 " />
                     </div>
-                    <button className="px-5 py-1 h-12 rounded-xl bg-blue text-white hover:bg-white hover:border-2 hover:border-blue hover:text-blue" onClick={() => router.push('/login')}>เข้าสู่ระบบ</button>
+                    <button className="lg:px-5 px-2 py-1 h-12 rounded-xl bg-blue text-white hover:bg-white hover:border-2 hover:border-blue hover:text-blue text-sm" onClick={() => router.push('/login')}>เข้าสู่ระบบ</button>
                 </div>
             )}
             </div>
