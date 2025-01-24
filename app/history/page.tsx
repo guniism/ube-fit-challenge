@@ -69,7 +69,7 @@ export default function Page(){
             <div className="w-[320px] hidden lg:block"></div>
             <div className="lg:w-full lg:p-10 lg:pl-20">
                 <div className="px-10 mt-5 w-full">
-                    <div className="">
+                    <div className="mb-32 lg:mb-0">
                         {error ? (<p>{error}</p>) : (<></>)}
                         <div className="space-y-3">
                             {exercises.length === 0 ? (

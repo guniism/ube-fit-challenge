@@ -11,11 +11,11 @@ export default function Header({style, profile} : {style: any, profile: boolean}
     return(
         <div className="w-full">
         <div className="w-full lg:pl-0 h-28 flex flex-row px-10 justify-between  items-center lg:fixed lg:border border-lightgray2 lg:h-20">
-            <div className="flex-shrink-0 w-[320px] h-full hidden lg:block justify-center items-center">
-                <div className='flex flex-col justify-center items-center pt-2'>
+            <div className="flex-shrink-0 w-[320px] h-full hidden lg:block justify-center items-center" >
+                <Link className='flex flex-col justify-center items-center pt-2' href="/">
                     <h1 className='text-blue font-medium text-[34px] flex'>UBE Fit&nbsp;<div className='text-gray'>Challenge</div></h1>
                     <hr className="border-t-4 border-blue w-72" />
-                </div>
+                </Link>
             </div>
             <div className="flex-row flex justify-between w-full items-center lg:pl-10">
             {session ? (

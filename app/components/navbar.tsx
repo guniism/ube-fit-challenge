@@ -106,6 +106,7 @@ export default  function Navbar(){
                     )
                 ))}
                 </ul>
+                
 
     {/* <div className="relative w-80 h-48 bg-gray-200 border border-gray-400 flex items-center justify-center">
       <p className="text-lg text-gray-700">Content inside div</p>
