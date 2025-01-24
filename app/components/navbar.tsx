@@ -3,6 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import SignOutBtn from "./signoutbtn";
 
 export default  function Navbar(){
     const pathname = usePathname();
@@ -16,9 +17,58 @@ export default  function Navbar(){
     ];
     return (
         <div>
-            <div className=" bg-white fixed bottom-0 w-full py-[42px] element">
+            <div className="lg:fixed lg:flex lg:flex-col hidden space-y-10 left-0 border border-x-lightgray2 border-y-0 w-[320px] h-full bg-white p-6">
+                
+                <div className="">
+                    <Link href="/add">
+                        <button className="border-2 hover:border-blue w-full rounded-2xl p-4 bg-blue hover:bg-white text-white hover:text-blue flex flex-row justify-center items-center">
+                            
+                            <Image
+                                height="30"
+                                width="30"
+                                src={`/assets/icons/plus-white.svg`}
+                                alt={`signout icon`}
+                                className="ml-1 mr-1"
+                            />
+                            <div className="mr-1 text-lg font-normal">เพิ่มการออกกำลังกาย</div>
+                        </button>
+                    </Link>
+                    <ul className="space-y-3 mt-3">
+                        {links.map(({ href, label, filename }, index) => (
+                            index === 2 ? (
+                                <></>
+                            ) : (
+                                <li key={`${filename}_nav`}>
+                                    <Link href={href} className={clsx('flex p-3 rounded-2xl hover:bg-lightgray ', 
+                                        {
+                                            'bg-lightgray': pathname === href,
+                                        })}>
+                                        <Image
+                                            height="24"
+                                            width="24"
+                                            src={`/assets/icons/${filename}-${(href === pathname) ? "blue" : "gray"}.svg`}
+                                            alt={`${filename} icon`}
+                                            className="ml-4 mr-4"
+                                        />
+                                        
+                                        <p className={clsx('text-base ', {
+                                            'text-blue': pathname === href,
+                                            'text-gblack': pathname != href,
+                                        })}>{label}</p>
+                                    </Link>
+                                </li>
+                            )
+                        ))}
+                    </ul>
+                </div>
+                <div>
+                    <SignOutBtn />
+                </div>
+
             </div>
-            <div className="fixed bottom-0 w-full px-2">
+            <div className=" bg-white fixed bottom-0 w-full py-[42px] element lg:hidden">
+            </div>
+            <div className="fixed bottom-0 w-full px-2 lg:hidden">
                 <ul className="flex flex-row justify-around content-center items-center">
                 {links.map(({ href, label, filename }, index) => (
                     index === 2 ? (
@@ -63,7 +113,10 @@ export default  function Navbar(){
         Click Me
       </button>
     </div> */}
+
+ 
             </div>
+
         </div>
     )
 }

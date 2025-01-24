@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Kanit } from "next/font/google";
 import { NextAuthProvider } from "./Providers";
+
 const kanit = Kanit({
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],

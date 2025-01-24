@@ -28,6 +28,7 @@ function RegisterPage() {
   
   // console.log(name, email, password, confirmPassword, error);
   const apiUrl = "https://ube-fit-challenge.vercel.app";
+  // const apiUrl = "http://localhost:3000";
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     
@@ -84,7 +85,7 @@ function RegisterPage() {
 
   return (
     <div>
-      <div className='px-10'>
+      <div className='px-10 md:w-96 md:px-0 md:mt-28 md:mx-auto'>
         <UBEFitChallenge />
         <h2 className='text-center font-medium text-2xl'>สมัครสมาชิก</h2>
         <form onSubmit={handleSubmit} className='flex flex-col justify-evenly'>
